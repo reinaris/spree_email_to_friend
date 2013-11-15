@@ -1,5 +1,7 @@
 class Spree::ToFriendMailer < ActionMailer::Base
 
+  layout 'spree/layouts/email'
+
   def mail_to_friend(object, mail)
     @object = object
     @mail = mail
@@ -15,6 +17,8 @@ class Spree::ToFriendMailer < ActionMailer::Base
     opts[:subject] =  mail.subject
     opts[:reply_to] = mail.sender_email
 
-    mail(opts)
+    mail(opts) do |format|
+      format.html
+    end
   end
 end

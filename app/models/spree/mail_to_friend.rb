@@ -9,8 +9,8 @@ class Spree::MailToFriend
   validates :sender_name, :presence => true
   validates :recipient_name, :presence => true, :unless => :is_multi
   validates :sender_email, :format => { :with => EMAILREGEX }
-  validates :recipients, :length => {:minimum => 1, :message => "must contain at least one valid email address"}
-  validates :invalid_recipients, :length => {:maximum => 0, :message => "must be removed"}
+  validates :recipients, :length => {:minimum => 1, :message => "moet in ieder geval 1 geldig e-mailadres bevatten"}
+  validates :invalid_recipients, :length => {:maximum => 0, :message => "moet worden verwijderd"}
 
   def initialize(opts = {})
     @sender_email = opts[:sender_email] || ' '
